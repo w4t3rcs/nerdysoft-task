@@ -79,8 +79,8 @@ public class MemberControllerTests {
                 {
                     "books": [
                         {
-                            "title": "Miracle of Life",
-                            "author": "Dorman Ofordel"
+                            "title": "Boooo",
+                            "author": "Kim Kom"
                         }
                     ]
                 }
