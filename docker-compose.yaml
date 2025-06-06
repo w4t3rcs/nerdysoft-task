@@ -1,7 +1,7 @@
 services:
   postgres:
     image: 'postgres:15'
-    container_name: nerdy-postgres
+    container_name: nerdysoft-postgres
     environment:
       POSTGRES_DB: ${POSTGRES_DB}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
@@ -12,7 +12,7 @@ services:
       - backend
   redis:
     image: 'redis:7.4.2'
-    container_name: nerdy-redis
+    container_name: nerdysoft-redis
     command: redis-server --save 20 1 --loglevel warning
     ports:
       - '6379:6379'
@@ -21,7 +21,7 @@ services:
     networks:
       - backend
   app:
-    container_name: nerdy-task-app
+    container_name: nerdysoft-task-app
     build:
       context: .
     depends_on:
