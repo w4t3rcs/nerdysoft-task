@@ -78,7 +78,6 @@ public class MemberServiceImpl implements MemberService {
             boolean isOldBooksNotNull = oldBooks != null;
             for (Book newBook : newBooks) {
                 if ((!isOldBooksNotNull) || (!oldBooks.contains(newBook))) {
-                    System.out.println("I am here :D");
                     newBook.setAmount(newBook.getAmount() - 1);
                     bookRepository.save(newBook);
                 }
