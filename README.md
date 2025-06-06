@@ -128,6 +128,8 @@ nerdysoft-task
 │   │   │               │       ├── BookServiceImpl.java
 │   │   │               │       └── BookServiceImpl.java
 │   │   │               ├── service
+│   │   │               │   ├── BorrowedBooks.java
+│   │   │               │   ├── BorrowedBooksValidator.java
 │   │   │               │   ├── FullName.java
 │   │   │               │   └── FullNameValidator.java
 │   │   │               └── Application.java

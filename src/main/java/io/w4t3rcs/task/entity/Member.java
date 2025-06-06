@@ -1,11 +1,10 @@
 package io.w4t3rcs.task.entity;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import io.w4t3rcs.task.validation.BorrowedBooks;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PastOrPresent;
-import jakarta.validation.constraints.Size;
 import lombok.*;
 import org.hibernate.proxy.HibernateProxy;
 
@@ -29,8 +28,7 @@ public class Member implements Serializable {
     @Temporal(TemporalType.DATE)
     private LocalDate membershipDate;
     @ToString.Exclude
-    @NotNull
-    @Size(max = 10)
+    @BorrowedBooks
     @JsonManagedReference
     @OneToMany(cascade = CascadeType.ALL)
     @JoinTable(
