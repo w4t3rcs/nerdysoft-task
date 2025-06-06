@@ -121,7 +121,7 @@ public class BookControllerTests {
         RestAssured.given()
                 .contentType(ContentType.JSON)
                 .when()
-                .put("/api/v1/books/1")
+                .get("/api/v1/books/1")
                 .then()
                 .statusCode(200)
                 .body("id", Matchers.is(1))
