@@ -1,6 +1,7 @@
 package io.w4t3rcs.task.validation;
 
 import jakarta.validation.Constraint;
+import jakarta.validation.Payload;
 
 import java.lang.annotation.*;
 
@@ -9,4 +10,7 @@ import java.lang.annotation.*;
 @Target( { ElementType.METHOD, ElementType.FIELD })
 @Retention(RetentionPolicy.RUNTIME)
 public @interface FullName {
+    String message() default "Invalid full name";
+    Class<?>[] groups() default {};
+    Class<? extends Payload>[] payload() default {};
 }
