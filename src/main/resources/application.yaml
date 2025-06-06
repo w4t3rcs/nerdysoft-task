@@ -1,1 +1,20 @@
-spring.application.name=nerdysoft-task
+spring:
+  application:
+    name: nerdysoft-task
+  datasource:
+    username: ${POSTGRES_USER}
+    password: ${POSTGRES_PASSWORD}
+    name: ${POSTGRES_DB}
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: validate
+  cache:
+    type: redis
+    cache-names: cache
+    redis:
+      cache-null-values: false
+      time-to-live: 2m
+springdoc:
+  swagger-ui:
+    path: /v1/docs

@@ -1,0 +1,20 @@
+CREATE TABLE IF NOT EXISTS members (
+    id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+    name VARCHAR NOT NULL,
+    membership_date DATE NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS books (
+    id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+    title VARCHAR NOT NULL,
+    author VARCHAR NOT NULL,
+    amount INT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS member_books (
+    member_id BIGINT NOT NULL,
+    book_id BIGINT NOT NULL,
+    PRIMARY KEY (member_id, book_id),
+    FOREIGN KEY(member_id) REFERENCES members,
+    FOREIGN KEY(book_id) REFERENCES books
+);

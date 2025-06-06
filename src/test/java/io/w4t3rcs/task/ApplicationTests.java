@@ -2,11 +2,10 @@ package io.w4t3rcs.task;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.annotation.Import;
 
-@Import(TestcontainersConfiguration.class)
+
 @SpringBootTest
-class NerdysoftTaskApplicationTests {
+class ApplicationTests {
 
     @Test
     void contextLoads() {
