@@ -31,7 +31,7 @@ public class MemberServiceImpl implements MemberService {
 
     @Override
     @Transactional
-    @Cacheable({"members", "books"})
+    @CachePut({"members", "books"})
     public MemberResponse createMember(MemberRequest request) {
         Member mappedMember = memberMapper.toMember(request);
         request.getBooks().forEach(bookRequest -> {

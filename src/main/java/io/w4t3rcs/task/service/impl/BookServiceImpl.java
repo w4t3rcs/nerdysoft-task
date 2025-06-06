@@ -30,7 +30,7 @@ public class BookServiceImpl implements BookService {
 
     @Override
     @Transactional
-    @Cacheable("books")
+    @CachePut("books")
     public BookResponse createBook(BookRequest request) {
         if (request.getAmount() == 0) throw new ValidationException("Amount must be greater than zero");
         if (bookRepository.existsBookByTitleAndAuthor(request.getTitle(), request.getAuthor())) {
@@ -64,7 +64,7 @@ public class BookServiceImpl implements BookService {
     @Transactional(readOnly = true)
     public Page<String> getBookNames(Pageable pageable) {
         return new PageImpl<>(bookRepository.findAll(pageable)
-                .filter(book -> book.getMembers() != null && !book.getMembers().isEmpty())
+                .filter(book -> !book.getMembers().isEmpty())
                 .map(book -> book.getTitle() + " :"  + book.getAuthor())
                 .toList());
     }

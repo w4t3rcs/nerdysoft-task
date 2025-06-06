@@ -1,10 +1,10 @@
 package io.w4t3rcs.task.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import io.w4t3rcs.task.validation.FullName;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import org.hibernate.validator.constraints.Length;
 
@@ -24,11 +24,11 @@ public class Book implements Serializable {
     @Length(min = 3)
     private String title;
     @NotBlank
+    @FullName
     private String author;
     @Min(0)
     private Integer amount;
     @ToString.Exclude
-    @NotNull
     @JsonBackReference
     @OneToMany(cascade = CascadeType.ALL)
     @JoinTable(
