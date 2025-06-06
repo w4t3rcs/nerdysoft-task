@@ -20,6 +20,22 @@ services:
       - cache:/data
     networks:
       - backend
+  app:
+    container_name: nerdy-task-app
+    build:
+      context: .
+    depends_on:
+      - postgres
+      - redis
+    environment:
+      SPRING_DATASOURCE_URL: ${POSTGRES_URL}/${POSTGRES_DB}
+      SPRING_DATASOURCE_USERNAME: ${POSTGRES_USER}
+      SPRING_DATASOURCE_PASSWORD: ${POSTGRES_PASSWORD}
+      SPRING_DATA_REDIS_URL: ${REDIS_URL}
+    ports:
+      - '8080:8080'
+    networks:
+      - backend
 
 volumes:
   cache:
